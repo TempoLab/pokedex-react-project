@@ -1,0 +1,132 @@
+
+.grid {
+  display: grid;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.pokeball-img-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 200px;
+  margin-bottom: 30px;
+}
+
+.pokeball-home-img {
+  max-width: 250px;
+  max-height: 250px;
+}
+
+.search-bar {
+  display: grid;
+  grid-template-columns: 98.5% [start] 1.5% [break1];
+}
+
+.below-search-bar {
+  display: grid;
+  grid-template-columns: 15% [start] 15% [again] 70% [end];
+}
+
+.item-search-bar {
+  width: 100%;
+}
+
+.item-button {
+  justify-self: end;
+  width: auto;
+}
+
+/* Media queries */
+$breakpoint-phone: 576px;
+$breakpoint-tablet: 768px;
+$breakpoint-laptop: 992px;
+$breakpoint-desktop: 1200px;
+
+// Loading Animation
+
+/* AnimationFrames */
+@keyframes frames {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loaderWrapper {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+}
+
+.pokeballLoader {
+  width: 60px;
+  height: 60px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  border: 3px solid;
+  animation: frames .8s linear 0s infinite;
+}
+
+.pokeballLoader:after {
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 30px;
+  background-color: red;
+  border-bottom: 4px solid;
+  top: -4px
+}
+
+.pokeballLoader:before {
+  content: '';
+  position: absolute;
+  background-color: #fff;
+  width: 10px;
+  height: 10px;
+  border: 4px solid;
+  border-radius: 50%;
+  bottom: 21.5px;
+  right: 21.5px;
+  z-index: 1;
+}
+
+// Loading Animation end
+
+.screen-size {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 4px;
+  background-color: blue;
+
+  @media (min-width: $breakpoint-phone) {
+    background-color: red;
+  }
+
+  @media (min-width: $breakpoint-tablet) {
+    background-color: purple;
+  }
+
+  @media (min-width: $breakpoint-laptop) {
+    background-color: lime;
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    background-color: deeppink;
+  }
+}
