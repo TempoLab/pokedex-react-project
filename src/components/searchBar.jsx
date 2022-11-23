@@ -2,7 +2,7 @@
 import ky from 'ky';
 import { useState } from 'react';
 
-export function SearchBar({ setPokemon }) {
+export function SearchBar({ setPokemon, setState }) {
 
     const getRandomPokemon = () => {
         return Math.floor(Math.random() * 905) + 1;
@@ -11,7 +11,9 @@ export function SearchBar({ setPokemon }) {
     const apiHandler = async (pokemonSearch) => {
         const search = pokemonSearch || getRandomPokemon();
         const response = await ky.get(`https://pokeapi.co/api/v2/pokemon/${search}/`).json()
+        console.log(response)
         setPokemon(response)
+        setState('complete')
     };
 
     const [pokemonSearchValue, setPokemonSearchValue] = useState('');
